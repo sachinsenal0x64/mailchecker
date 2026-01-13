@@ -587,9 +587,7 @@
 186site.com
 1871188.net
 187gmail.com
-188.com
 188gmail.com
-189.cn
 1895photography.com
 189gmail.com
 18a8q82bc.pl
@@ -51437,7 +51435,6 @@ vip-timeclub.ru
 vip-watches.ru
 vip-watches1.eu
 vip.163.com.org
-vip.188.com
 vip.aiot.eu.org
 vip.cool
 vip.dmtc.press
