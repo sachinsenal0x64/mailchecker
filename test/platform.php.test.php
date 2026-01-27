@@ -64,8 +64,9 @@ class Platform extends TestCase
 
     public static function provideBlackListTests()
     {
-        foreach (array_rand(MailChecker::blacklist(), 1000) as $blacklistedDomain) {
-            yield [$blacklistedDomain];
+        $blacklist = MailChecker::blacklist();
+        foreach (array_rand($blacklist, 1000) as $key) {
+            yield [$blacklist[$key]];
         }
     }
 
@@ -89,5 +90,14 @@ class Platform extends TestCase
         $this->isInvalid('foo@youtube.com');
         $this->isInvalid('foo@google.com');
         $this->isValid('ok@gmail.com');
+    }
+
+    #[DataProvider('provideBlackListTests')]
+    public function testIsDomainBlocked($blacklistedDomain)
+    {
+        $this->assertEquals(true, MailChecker::isDomainBlocked($blacklistedDomain, true));
+        $this->assertEquals(true, MailChecker::isDomainBlocked('subdomain.'.$blacklistedDomain, true));
+        $this->assertEquals(true, MailChecker::isDomainBlocked($blacklistedDomain, false));
+        $this->assertEquals(false, MailChecker::isDomainBlocked('subdomain.'.$blacklistedDomain, false));
     }
 }
