@@ -14652,6 +14652,7 @@ dnetwork.site
 dnflanddl.com
 dnlien.com
 dnrc.com
+dnsclick.com
 dns-cloud.net
 dns-privacy.com
 dns123.org
